@@ -5,8 +5,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_tracking/Utils/constant.dart';
 import 'package:plant_tracking/addPlantsPage/Widget/plant_image_container_widget.dart';
-import 'package:plant_tracking/main.dart';
-import 'package:plant_tracking/test.dart';
 
 import 'plant_water_container_widget.dart';
 
@@ -192,9 +190,5 @@ class _AddPlantsPageTextFieldWidgetState
     selectedImagePath = '';
 
     adddatacomlate = false;
-    if (adddatacomlate = false) {
-      print("objeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAct");
-    }
-    setState(() {});
   }
 }
