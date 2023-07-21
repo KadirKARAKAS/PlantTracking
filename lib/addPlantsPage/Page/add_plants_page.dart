@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:keyboard_service/keyboard_service.dart';
 import 'package:plant_tracking/addPlantsPage/Widget/add_plants_page_textfield.dart';
 import 'package:plant_tracking/addPlantsPage/Widget/topbar_widget.dart';
 
@@ -12,12 +13,17 @@ class AddPlantsPage extends StatefulWidget {
 class _AddPlantsPageState extends State<AddPlantsPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          const TopBarWidget(),
-          AddPlantsPageTextFieldWidget(),
-        ],
+    return KeyboardAutoDismiss(
+      scaffold: Scaffold(
+        backgroundColor: Color(0xff9CD9A1),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const TopBarWidget(),
+              AddPlantsPageTextFieldWidget(),
+            ],
+          ),
+        ),
       ),
     );
   }

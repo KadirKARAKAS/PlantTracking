@@ -184,6 +184,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.7"
+  keyboard_service:
+    dependency: "direct main"
+    description:
+      name: keyboard_service
+      sha256: a544b8a8769cab891b95ba4d0df3419dabc3afe29f63d87ec1d2778c0e85fda0
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.2"
   lints:
     dependency: transitive
     description:

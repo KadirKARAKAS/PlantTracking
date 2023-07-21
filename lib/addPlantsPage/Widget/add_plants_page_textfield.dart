@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_tracking/Utils/constant.dart';
+import 'package:plant_tracking/addPlantsPage/Widget/plant_image_container_widget.dart';
+import 'package:plant_tracking/addPlantsPage/Widget/textfield_widget.dart';
 
 import 'plant_water_container_widget.dart';
 
@@ -15,47 +17,37 @@ class AddPlantsPageTextFieldWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          TextField(
-            controller: textFieldController1,
-            decoration: const InputDecoration(
-              labelText: 'Plant Species',
-              border: OutlineInputBorder(),
-            ),
-          ),
-          SizedBox(height: 10),
-          TextField(
-            controller: textFieldController2,
-            decoration: const InputDecoration(
-              labelText: 'Plant Size',
-              border: OutlineInputBorder(),
-            ),
-          ),
-          const SizedBox(height: 20),
+          const TextFieldWidget(),
           const Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 "How often do you water the plant?",
                 style: TextStyle(fontSize: 18, color: Color(0xff747474)),
               )),
-          SizedBox(height: 10),
-          const PlantWaterContainerWidget(),
           const SizedBox(height: 10),
+          const PlantWaterContainerWidget(), // SULAMA ZAMANI CONTAİNER
+          const SizedBox(height: 30),
+          const PlantImageContainerWidget(), //RESİM CONTAİNERI
+          const SizedBox(height: 20),
           Align(
-            alignment: Alignment.centerRight,
+            alignment: Alignment.center,
             child: InkWell(
               onTap: () {
                 addToDatabase();
               },
               child: Container(
-                width: 100,
-                height: 50,
+                width: 80,
+                height: 30,
                 decoration: BoxDecoration(
-                    color: Colors.green,
+                    color: Color(0xffDEFFDD),
                     borderRadius: BorderRadius.circular(23)),
                 child: const Center(
                     child: Text(
-                  "Ekle",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  "Add",
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xff747474)),
                 )),
               ),
             ),
