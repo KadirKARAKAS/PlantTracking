@@ -5,7 +5,7 @@ import 'package:plant_tracking/addPlantsPage/Page/add_plants_page.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: AddPlantsPage(),
   ));
 }

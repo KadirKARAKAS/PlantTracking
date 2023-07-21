@@ -19,7 +19,7 @@ class TextFieldWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: TextField(
                 controller: textFieldController1,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   focusedBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
                   hintText: 'Plant Species',
@@ -33,7 +33,8 @@ class TextFieldWidget extends StatelessWidget {
           width: size.width,
           height: 60,
           decoration: BoxDecoration(
-              color: Color(0xffDEFFDD), borderRadius: BorderRadius.circular(9)),
+              color: const Color(0xffDEFFDD),
+              borderRadius: BorderRadius.circular(9)),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: TextField(
