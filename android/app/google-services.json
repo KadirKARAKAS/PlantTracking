@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "349757274183",
+    "project_id": "plantstracking",
+    "storage_bucket": "plantstracking.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:349757274183:android:8f820fe063c710f2e25962",
+        "android_client_info": {
+          "package_name": "com.example.plant_tracking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "349757274183-86lit3k1pd6cvtcb9lsdf80pv7ldvoat.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoPwGKNj5Ken8N_-nPsnkl_8BbzenaiT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "349757274183-86lit3k1pd6cvtcb9lsdf80pv7ldvoat.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
