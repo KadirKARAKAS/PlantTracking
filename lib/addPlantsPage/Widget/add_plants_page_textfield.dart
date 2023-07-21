@@ -5,6 +5,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_tracking/Utils/constant.dart';
 import 'package:plant_tracking/addPlantsPage/Widget/plant_image_container_widget.dart';
+import 'package:plant_tracking/main.dart';
+import 'package:plant_tracking/test.dart';
 
 import 'plant_water_container_widget.dart';
 
@@ -77,7 +79,23 @@ class _AddPlantsPageTextFieldWidgetState
             ],
           ),
         ),
-        adddatacomlate ? const CircularProgressIndicator() : const SizedBox(),
+        Container(
+          height: 600,
+          child: Align(
+            alignment: Alignment.center,
+            child: adddatacomlate
+                ? const SizedBox(
+                    width: 100,
+                    height: 100,
+                    child: CircularProgressIndicator(
+                      backgroundColor: Colors.white,
+                      strokeWidth: 10,
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+                    ),
+                  )
+                : const SizedBox(),
+          ),
+        ),
       ],
     );
   }
@@ -174,6 +192,9 @@ class _AddPlantsPageTextFieldWidgetState
     selectedImagePath = '';
 
     adddatacomlate = false;
+    if (adddatacomlate = false) {
+      print("objeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAct");
+    }
     setState(() {});
   }
 }
