@@ -1,10 +1,11 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_tracking/Utils/constant.dart';
 import 'package:plant_tracking/addPlantsPage/Widget/plant_image_container_widget.dart';
+import 'package:plant_tracking/plantsHomePage/Page/plants_home_page.dart';
 
 import 'plant_water_container_widget.dart';
 
@@ -51,10 +52,6 @@ class _AddPlantsPageTextFieldWidgetState
                 alignment: Alignment.center,
                 child: InkWell(
                   onTap: () {
-                    setState(() {
-                      adddatacomlate = true;
-                    });
-
                     storageKaydetme();
                   },
                   child: Container(
@@ -99,6 +96,10 @@ class _AddPlantsPageTextFieldWidgetState
   }
 
   void storageKaydetme() async {
+    setState(() {
+      adddatacomlate = true;
+    });
+
     if (selectedImagePath.isNotEmpty) {
       List<String> imagePathList = selectedImagePath.split('/');
       await FirebaseStorage.instance
@@ -143,7 +144,8 @@ class _AddPlantsPageTextFieldWidgetState
       width: size.width,
       height: 60,
       decoration: BoxDecoration(
-          color: Color(0xffDEFFDD), borderRadius: BorderRadius.circular(9)),
+          color: const Color(0xffDEFFDD),
+          borderRadius: BorderRadius.circular(9)),
       child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: TextField(
@@ -171,24 +173,36 @@ class _AddPlantsPageTextFieldWidgetState
     };
 
     await FirebaseFirestore.instance
-        .collection("PlantSpecies")
-        .doc(plantSpecies)
-        .set(plant);
+        .collection('Users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection("My Plants")
+        .add(plant);
 
     textFieldController1.clear();
     textFieldController2.clear();
 
-    await FirebaseFirestore.instance
-        .collection("PlantSpecies")
-        .doc(plantSpecies)
-        .get()
-        .then((doc) {
-      Map<String, dynamic> xMap = doc.data() as Map<String, dynamic>;
-      getdataList.addAll([xMap]);
+    final userRef = FirebaseFirestore.instance
+        .collection("Users")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection("My Plants");
+
+    final querySnapshot = await userRef.get();
+    getdataList.clear();
+    querySnapshot.docs.forEach((doc) {
+      getdataList.add(doc.data());
     });
 
-    selectedImagePath = '';
+    setState(() {
+      selectedImagePath = '';
+    });
 
     adddatacomlate = false;
+    if (!adddatacomlate) {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => PlantsHomePage(),
+          ));
+    }
   }
 }

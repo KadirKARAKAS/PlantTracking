@@ -41,6 +41,7 @@ dependencies:
   keyboard_service: ^2.0.2
   image_picker: ^1.0.1
   permission_handler: ^10.4.3
+  firebase_auth: ^4.7.1
   
 
 dev_dependencies:
