@@ -20,29 +20,21 @@ class _PlantWaterContainerWidgetState extends State<PlantWaterContainerWidget> {
           setState(() {
             selectedContainer = 0;
           });
-        },
-            selectedContainer ==
-                0), // Konteyner seçildiğinde, isSelected değeri true olur.
+        }, selectedContainer == 0),
         const SizedBox(width: 5),
         waterContainer(size / 1.3, "Twice Daily", () {
           selectionWaterContainer = 1;
           setState(() {
-            selectedContainer =
-                1; // Seçilen konteynerin indeksi 1 olarak güncellenir.
+            selectedContainer = 1;
           });
-        },
-            selectedContainer ==
-                1), // Konteyner seçildiğinde, isSelected değeri true olur.
+        }, selectedContainer == 1),
         const SizedBox(width: 5),
         waterContainer(size, "Once or Twice a Week", () {
           selectionWaterContainer = 2;
           setState(() {
-            selectedContainer =
-                2; // Seçilen konteynerin indeksi 2 olarak güncellenir.
+            selectedContainer = 2;
           });
-        },
-            selectedContainer ==
-                2), // Konteyner seçildiğinde, isSelected değeri true olur.
+        }, selectedContainer == 2),
       ],
     );
   }
@@ -64,9 +56,7 @@ class _PlantWaterContainerWidgetState extends State<PlantWaterContainerWidget> {
             borderRadius: BorderRadius.circular(10),
             border: isSelected
                 ? Border.all()
-                : Border.all(
-                    width:
-                        0)), // Konteyner seçildiğinde sınır çizgisi gösterilir.
+                : Border.all(width: 0, color: Colors.transparent)),
         child: Center(
           child: Text(
             containerText,
