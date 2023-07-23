@@ -14,7 +14,7 @@ class PlantsHomePage extends StatefulWidget {
 class _PlantsHomePageState extends State<PlantsHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Color(0xff9CD9A1),
       body: SingleChildScrollView(
         child: Padding(
