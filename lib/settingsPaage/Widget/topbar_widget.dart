@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:plant_tracking/settingsPaage/Page/settings_page.dart';
 
-class TopBarWidget extends StatelessWidget {
-  const TopBarWidget({super.key});
+class TopBarWidgetSetting extends StatelessWidget {
+  const TopBarWidgetSetting({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,30 +12,24 @@ class TopBarWidget extends StatelessWidget {
         height: 80,
       ),
       const Padding(
-        padding: EdgeInsets.only(top: 40, bottom: 30),
+        padding: EdgeInsets.only(top: 40, bottom: 40),
         child: Center(
           child: Text(
-            "Add Plants ",
+            "Settings ",
             style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
           ),
         ),
       ),
       Padding(
-        padding: const EdgeInsets.only(
-          top: 45,
-        ),
+        padding: const EdgeInsets.only(top: 40, left: 10),
         child: Align(
             alignment: Alignment.centerLeft,
             child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SettingsPage(),
-                      ));
+                  Navigator.pop(context);
                 },
                 child: const Icon(
-                  Icons.menu,
+                  Icons.arrow_back_outlined,
                   size: 32,
                 ))),
       ),

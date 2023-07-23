@@ -15,12 +15,12 @@ class _AddPlantsPageState extends State<AddPlantsPage> {
   Widget build(BuildContext context) {
     return KeyboardAutoDismiss(
       scaffold: Scaffold(
-        backgroundColor: Color(0xff9CD9A1),
+        backgroundColor: const Color(0xff9CD9A1),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const TopBarWidget(),
-              AddPlantsPageTextFieldWidget(),
+              TopBarWidget(),
+              const AddPlantsPageTextFieldWidget(),
             ],
           ),
         ),

@@ -31,7 +31,8 @@ class PlantsImageContainerWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(9),
           color: const Color(0xffBFEDBE),
           image: DecorationImage(
-              image: NetworkImage(getdataList[index]["İmageUrl"])),
+              image: NetworkImage(getdataList[index]["İmageUrl"]),
+              fit: BoxFit.cover),
         ),
       ),
     );
