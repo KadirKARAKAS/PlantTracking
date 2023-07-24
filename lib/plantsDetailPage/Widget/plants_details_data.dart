@@ -8,18 +8,19 @@ class PlansDetailsData extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        detailsContainerWidget(
-            context, getdataList[selectedPlantsIndex]["PlantSpecies"]),
-        detailsContainerWidget(
-            context, getdataList[selectedPlantsIndex]["PlantSize"]),
-        detailsContainerWidget(context,
+        detailsContainerWidget(context, "Plant Species :",
+            getdataList[selectedPlantsIndex]["PlantSpecies"]),
+        detailsContainerWidget(context, "Plant Size :",
+            getdataList[selectedPlantsIndex]["PlantSize"]),
+        detailsContainerWidget(context, "Water Period :",
             getdataList[selectedPlantsIndex]["WaterPeriot"].toString()),
         detailsImageContainerWidget(),
       ],
     );
   }
 
-  Widget detailsContainerWidget(BuildContext context, String detailText) {
+  Widget detailsContainerWidget(
+      BuildContext context, String detailText, String plansDataText) {
     Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
@@ -33,10 +34,27 @@ class PlansDetailsData extends StatelessWidget {
           padding: const EdgeInsets.all(12),
           child: Align(
               alignment: Alignment.centerLeft,
-              child: Text(
-                detailText,
-                style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+              child: Row(
+                children: [
+                  Text(
+                    detailText,
+                    style: const TextStyle(
+                        color: Color(0xff9A9A9A),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400),
+                  ),
+                  const SizedBox(width: 5),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 1),
+                    child: Text(
+                      plansDataText,
+                      style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black87),
+                    ),
+                  ),
+                ],
               )),
         ),
       ),
