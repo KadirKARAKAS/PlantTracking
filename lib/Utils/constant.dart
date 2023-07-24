@@ -6,3 +6,4 @@ bool adddatacomlate = false;
 int selectedContainer = 0;
 bool iconVisiable = false;
 int waterPeriod = 0;
+int selectedPlantsIndex = 0;
