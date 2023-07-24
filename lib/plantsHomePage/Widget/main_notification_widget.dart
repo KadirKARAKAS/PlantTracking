@@ -11,13 +11,6 @@ class NotificationWidget extends StatefulWidget {
 class _NotificationWidgetState extends State<NotificationWidget> {
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        NotificationContainerWidget(),
-        NotificationContainerWidget(),
-        NotificationContainerWidget(),
-        NotificationContainerWidget(),
-      ],
-    );
+    return const NotificationContainerWidget();
   }
 }

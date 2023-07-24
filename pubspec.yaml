@@ -43,6 +43,7 @@ dependencies:
   permission_handler: ^10.4.3
   firebase_auth: ^4.7.1
   cached_network_image: ^3.2.3
+  flutter_slidable: ^3.0.0
   
 
 dev_dependencies:
