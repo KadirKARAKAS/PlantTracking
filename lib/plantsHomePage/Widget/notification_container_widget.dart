@@ -71,13 +71,16 @@ class _NotificationContainerWidgetState
                 padding: const EdgeInsets.all(10),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    textAlign: TextAlign.start,
-                    "Don't forget to water the " +
-                        getdataList[index]["PlantSpecies"] +
-                        ".",
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w600),
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 33),
+                    child: Text(
+                      textAlign: TextAlign.start,
+                      "Don't forget to water the " +
+                          getdataList[index]["PlantSpecies"] +
+                          ".",
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.w600),
+                    ),
                   ),
                 ),
               ),
@@ -121,13 +124,16 @@ class _NotificationContainerWidgetState
                 padding: const EdgeInsets.all(10),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    textAlign: TextAlign.start,
-                    "Put the " +
-                        getdataList[index]["PlantSpecies"] +
-                        " in the sun.",
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w600),
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 33),
+                    child: Text(
+                      textAlign: TextAlign.start,
+                      "Put the " +
+                          getdataList[index]["PlantSpecies"] +
+                          " in the sun.",
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.w600),
+                    ),
                   ),
                 ),
               ),

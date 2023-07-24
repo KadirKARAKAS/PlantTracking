@@ -74,11 +74,16 @@ class _AddPlantsPageTextFieldWidgetState
             ],
           ),
         ),
-        Container(
-          height: 600,
-          child: Align(
-            alignment: Alignment.center,
-            child: adddatacomlate
+        Stack(
+          alignment: Alignment.center,
+          children: [
+            if (adddatacomlate)
+              Container(
+                width: size.width,
+                height: size.height - 200,
+                color: Colors.transparent,
+              ),
+            adddatacomlate
                 ? const SizedBox(
                     width: 100,
                     height: 100,
@@ -89,7 +94,7 @@ class _AddPlantsPageTextFieldWidgetState
                     ),
                   )
                 : const SizedBox(),
-          ),
+          ],
         ),
       ],
     );
