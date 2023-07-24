@@ -174,7 +174,7 @@ class _AddPlantsPageTextFieldWidgetState
       "PlantSpecies": plantSpecies,
       "PlantSize": plantSize,
       "WaterPeriot": selectionWaterContainer,
-      "İmageUrl": imageURLL,
+      "ImageUrl": imageURLL,
     };
 
     await FirebaseFirestore.instance
@@ -199,15 +199,23 @@ class _AddPlantsPageTextFieldWidgetState
 
     setState(() {
       selectedImagePath = '';
+      adddatacomlate = false;
     });
 
-    adddatacomlate = false;
     if (!adddatacomlate) {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => PlantsHomePage(),
-          ));
+      if (iconVisiable) {
+        Navigator.pop(context);
+      } else {
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PlantsHomePage(),
+            ));
+      }
     }
+  }
+
+  Widget getdataListWaterPeriod(int index) {
+    return waterPeriotgetDataList = getdataList[index]["Water Periot"];
   }
 }

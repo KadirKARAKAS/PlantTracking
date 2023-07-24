@@ -16,21 +16,21 @@ class _PlantWaterContainerWidgetState extends State<PlantWaterContainerWidget> {
     return Row(
       children: [
         waterContainer(size / 1.3, "Once Daily", () {
-          selectionWaterContainer = 0;
+          selectionWaterContainer = "Once Daily";
           setState(() {
             selectedContainer = 0;
           });
         }, selectedContainer == 0),
         const SizedBox(width: 5),
         waterContainer(size / 1.3, "Twice Daily", () {
-          selectionWaterContainer = 1;
+          selectionWaterContainer = "Twice Daily";
           setState(() {
             selectedContainer = 1;
           });
         }, selectedContainer == 1),
         const SizedBox(width: 5),
         waterContainer(size, "Once or Twice a Week", () {
-          selectionWaterContainer = 2;
+          selectionWaterContainer = "Once or Twice a Week";
           setState(() {
             selectedContainer = 2;
           });

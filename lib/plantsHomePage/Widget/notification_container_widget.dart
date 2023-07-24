@@ -42,7 +42,7 @@ class _NotificationContainerWidgetState
     );
   }
 
-  Widget addWaterContainerWidget(int index, int waterPeriod) {
+  Widget addWaterContainerWidget(int index, String waterPeriod) {
     Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 3),
@@ -98,7 +98,7 @@ class _NotificationContainerWidgetState
     );
   }
 
-  Widget addSunContainerWidegt(int index, int waterPeriod) {
+  Widget addSunContainerWidegt(int index, String waterPeriod) {
     Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 3),

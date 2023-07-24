@@ -68,6 +68,7 @@ class PlansDetailsData extends StatelessWidget {
         width: 250,
         height: 350,
         decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
             image: DecorationImage(
                 image:
                     NetworkImage(getdataList[selectedPlantsIndex]["İmageUrl"]),
