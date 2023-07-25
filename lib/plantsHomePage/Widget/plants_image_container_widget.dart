@@ -8,19 +8,23 @@ class PlantsImageContainerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: SizedBox(
-        height: 280, // Buraya istediğiniz sınırlayıcı yüksekliği verin
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          shrinkWrap: true,
-          itemCount: getdataList.length,
-          itemBuilder: (context, index) {
-            return plantsImageContainer(index, context);
-          },
-        ),
-      ),
-    );
+    return ValueListenableBuilder(
+        valueListenable: valueNotifierX,
+        builder: (context, value, child) {
+          return SingleChildScrollView(
+            child: SizedBox(
+              height: 280, // Buraya istediğiniz sınırlayıcı yüksekliği verin
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: getdataList.length,
+                itemBuilder: (context, index) {
+                  return plantsImageContainer(index, context);
+                },
+              ),
+            ),
+          );
+        });
   }
 
   Widget plantsImageContainer(int index, BuildContext context) {

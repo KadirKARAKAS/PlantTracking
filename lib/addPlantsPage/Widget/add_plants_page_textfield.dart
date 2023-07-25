@@ -210,6 +210,8 @@ class _AddPlantsPageTextFieldWidgetState
     if (!adddatacomlate) {
       if (iconVisiable) {
         Navigator.pop(context);
+        Navigator.pop(context);
+        valueNotifierX.value += 1;
       } else {
         Navigator.pushReplacement(
             context,

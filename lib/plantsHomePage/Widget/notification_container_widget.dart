@@ -18,30 +18,34 @@ class _NotificationContainerWidgetState
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 5, top: 5),
-      child: Container(
-        width: size.width,
-        height: 300,
-        child: ListView.builder(
-          padding: const EdgeInsets.only(top: 5),
-          shrinkWrap: true,
-          itemCount: getdataList.length,
-          itemBuilder: (context, index) {
-            waterPeriod = getdataList[index]["WaterPeriot"];
+    return ValueListenableBuilder(
+        valueListenable: valueNotifierX,
+        builder: (context, value, child) {
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 5, top: 5),
+            child: Container(
+              width: size.width,
+              height: 300,
+              child: ListView.builder(
+                padding: const EdgeInsets.only(top: 5),
+                shrinkWrap: true,
+                itemCount: getdataList.length,
+                itemBuilder: (context, index) {
+                  waterPeriod = getdataList[index]["WaterPeriot"];
 
-            return Column(
-              children: [
-                addWaterContainerWidget(
-                  index,
-                ),
-                addSunContainerWidegt(index),
-              ],
-            );
-          },
-        ),
-      ),
-    );
+                  return Column(
+                    children: [
+                      addWaterContainerWidget(
+                        index,
+                      ),
+                      addSunContainerWidegt(index),
+                    ],
+                  );
+                },
+              ),
+            ),
+          );
+        });
   }
 
   Widget addWaterContainerWidget(
