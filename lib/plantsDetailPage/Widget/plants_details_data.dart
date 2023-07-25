@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_tracking/Utils/constant.dart';
 
@@ -64,15 +65,18 @@ class PlansDetailsData extends StatelessWidget {
   Widget detailsImageContainerWidget() {
     return Padding(
       padding: const EdgeInsets.only(top: 30),
-      child: Container(
-        width: 250,
-        height: 350,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            image: DecorationImage(
-                image:
-                    NetworkImage(getdataList[selectedPlantsIndex]["İmageUrl"]),
-                fit: BoxFit.cover)),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(9),
+        child: CachedNetworkImage(
+          imageUrl: getdataList[selectedPlantsIndex]["ImageUrl"],
+          width: 250,
+          height: 350,
+          fit: BoxFit.cover,
+          placeholder: (context, url) => const Center(
+            child: CircularProgressIndicator(),
+          ),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
+        ),
       ),
     );
   }

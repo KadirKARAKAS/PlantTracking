@@ -32,8 +32,10 @@ class _NotificationContainerWidgetState
 
             return Column(
               children: [
-                addWaterContainerWidget(index, waterPeriod),
-                addSunContainerWidegt(index, waterPeriod),
+                addWaterContainerWidget(
+                  index,
+                ),
+                addSunContainerWidegt(index),
               ],
             );
           },
@@ -42,7 +44,11 @@ class _NotificationContainerWidgetState
     );
   }
 
-  Widget addWaterContainerWidget(int index, String waterPeriod) {
+  Widget addWaterContainerWidget(
+    int index,
+  )
+  // String waterPeriod
+  {
     Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 3),
@@ -98,7 +104,9 @@ class _NotificationContainerWidgetState
     );
   }
 
-  Widget addSunContainerWidegt(int index, String waterPeriod) {
+  Widget addSunContainerWidegt(int index) {
+    // String waterPeriod
+
     Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 3),
@@ -151,7 +159,6 @@ class _NotificationContainerWidgetState
     );
   }
 }
-  //   Widget  changeToSoilContainerWidget() {
-  //   return Container();
-  // }
-
+//   Widget  changeToSoilContainerWidget() {
+//   return Container();
+// }

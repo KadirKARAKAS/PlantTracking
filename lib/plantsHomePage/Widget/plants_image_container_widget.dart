@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_tracking/Utils/constant.dart';
 import 'package:plant_tracking/plantsDetailPage/Page/plants_detail_page.dart';
@@ -24,28 +25,29 @@ class PlantsImageContainerWidget extends StatelessWidget {
 
   Widget plantsImageContainer(int index, BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 15, top: 10),
-      child: InkWell(
-        onTap: () {
-          selectedPlantsIndex = index;
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => PlantsDetailPage(),
-              ));
-        },
-        child: Container(
-          width: 200,
-          height: 280,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(9),
-            color: const Color(0xffBFEDBE),
-            image: DecorationImage(
-                image: NetworkImage(getdataList[index]["ImageUrl"]),
-                fit: BoxFit.cover),
-          ),
-        ),
-      ),
-    );
+        padding: const EdgeInsets.only(right: 15, top: 10),
+        child: InkWell(
+            onTap: () {
+              selectedPlantsIndex = index;
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const PlantsDetailPage(),
+                ),
+              );
+            },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(9),
+              child: CachedNetworkImage(
+                imageUrl: getdataList[index]["ImageUrl"],
+                width: 200,
+                height: 280,
+                fit: BoxFit.cover,
+                placeholder: (context, url) => const Center(
+                  child: CircularProgressIndicator(),
+                ),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
+              ),
+            )));
   }
 }

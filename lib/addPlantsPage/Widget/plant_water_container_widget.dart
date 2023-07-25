@@ -17,6 +17,7 @@ class _PlantWaterContainerWidgetState extends State<PlantWaterContainerWidget> {
       children: [
         waterContainer(size / 1.3, "Once Daily", () {
           selectionWaterContainer = "Once Daily";
+          waterPeriod = "Once Daily";
           setState(() {
             selectedContainer = 0;
           });
@@ -24,6 +25,7 @@ class _PlantWaterContainerWidgetState extends State<PlantWaterContainerWidget> {
         const SizedBox(width: 5),
         waterContainer(size / 1.3, "Twice Daily", () {
           selectionWaterContainer = "Twice Daily";
+          waterPeriod = "Twice Daily";
           setState(() {
             selectedContainer = 1;
           });
@@ -31,6 +33,7 @@ class _PlantWaterContainerWidgetState extends State<PlantWaterContainerWidget> {
         const SizedBox(width: 5),
         waterContainer(size, "Once or Twice a Week", () {
           selectionWaterContainer = "Once or Twice a Week";
+          waterPeriod = "Once or Twice a Week";
           setState(() {
             selectedContainer = 2;
           });
