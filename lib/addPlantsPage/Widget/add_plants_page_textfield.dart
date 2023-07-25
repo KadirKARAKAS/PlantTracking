@@ -43,7 +43,10 @@ class _AddPlantsPageTextFieldWidgetState
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "How often do you water the plant?",
-                    style: TextStyle(fontSize: 18, color: Color(0xff747474)),
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Color(0xff747474),
+                    ),
                   )),
               const SizedBox(height: 10),
               const PlantWaterContainerWidget(), // SULAMA ZAMANI CONTAİNER

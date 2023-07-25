@@ -8,3 +8,4 @@ bool iconVisiable = false;
 String waterPeriod = "";
 int selectedPlantsIndex = 0;
 int waterPeriotgetDataList = 0;
+int detailsIndex = 0;

@@ -16,7 +16,15 @@ class TopBarWidget extends StatelessWidget {
           child: Center(
             child: Text(
               "Add Plants ",
-              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  shadows: [
+                    Shadow(
+                      blurRadius: 5,
+                      color: Colors.black54,
+                    )
+                  ]),
             ),
           ),
         ),

@@ -12,10 +12,15 @@ class TextWidget extends StatelessWidget {
       child: Text(
         text,
         style: const TextStyle(
-          fontSize: 32,
-          fontWeight: FontWeight.w500,
-          decoration: TextDecoration.underline,
-        ),
+            fontSize: 32,
+            fontWeight: FontWeight.w500,
+            decoration: TextDecoration.underline,
+            shadows: [
+              Shadow(
+                blurRadius: 3,
+                color: Colors.black54,
+              )
+            ]),
       ),
     );
   }

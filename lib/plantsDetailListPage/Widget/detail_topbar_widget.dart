@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:plant_tracking/settingsPaage/Page/settings_page.dart';
+import 'package:plant_tracking/plantsHomePage/Page/plants_home_page.dart';
 
-class TopBarWidget extends StatelessWidget {
-  const TopBarWidget({super.key});
-
+class DetailTopBarWidget extends StatelessWidget {
+  const DetailTopBarWidget({super.key, required this.topBarTitle});
+  final String topBarTitle;
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+  ) {
     Size size = MediaQuery.of(context).size;
     return Stack(children: [
       Container(
         width: size.width,
         height: 80,
       ),
-      const Padding(
+      Padding(
         padding: EdgeInsets.only(top: 40, bottom: 30),
         child: Center(
           child: Text(
-            "Add Plants ",
+            topBarTitle,
             style:
                 TextStyle(fontSize: 32, fontWeight: FontWeight.bold, shadows: [
               Shadow(
@@ -28,9 +30,7 @@ class TopBarWidget extends StatelessWidget {
         ),
       ),
       Padding(
-        padding: const EdgeInsets.only(
-          top: 45,
-        ),
+        padding: const EdgeInsets.only(top: 45, left: 20),
         child: Align(
             alignment: Alignment.centerLeft,
             child: InkWell(
@@ -38,12 +38,12 @@ class TopBarWidget extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SettingsPage(),
+                        builder: (context) => const PlantsHomePage(),
                       ));
                 },
                 child: const Icon(
-                  Icons.menu,
-                  size: 32,
+                  Icons.arrow_back_outlined,
+                  size: 33,
                 ))),
       ),
     ]);

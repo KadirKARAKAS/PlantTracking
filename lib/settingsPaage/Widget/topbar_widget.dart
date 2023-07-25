@@ -16,12 +16,21 @@ class TopBarWidgetSetting extends StatelessWidget {
         child: Center(
           child: Text(
             "Settings ",
-            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              shadows: [
+                Shadow(
+                  blurRadius: 5,
+                  color: Colors.black54,
+                )
+              ],
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
       Padding(
-        padding: const EdgeInsets.only(top: 40, left: 10),
+        padding: const EdgeInsets.only(top: 40, left: 20),
         child: Align(
             alignment: Alignment.centerLeft,
             child: InkWell(
