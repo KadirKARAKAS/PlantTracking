@@ -42,12 +42,12 @@ class DetailPageListviewWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(9),
                   color: const Color(0xffBFEDBE),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.5),
-                      blurRadius: 10,
-                      offset: const Offset(0, 4),
-                    ),
+                        color: Colors.black,
+                        blurRadius: 10,
+                        offset: Offset(0, 4),
+                        blurStyle: BlurStyle.normal),
                   ],
                 ),
                 child: CachedNetworkImage(
@@ -65,11 +65,9 @@ class DetailPageListviewWidget extends StatelessWidget {
               child: Container(
                 width: 350,
                 height: 70,
-                decoration: const BoxDecoration(
-                    color: Color(0xffDEFFDD),
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10))),
+                decoration: BoxDecoration(
+                    color: const Color(0xffDEFFDD),
+                    borderRadius: BorderRadius.circular(9)),
                 child: Center(
                   child: Text(
                     getdataList[index]["PlantSpecies"],

@@ -40,22 +40,24 @@ class PlantsImageContainerWidget extends StatelessWidget {
             ),
           );
         },
-        child: Container(
-          width: 200,
-          height: 280,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(9),
-            color: const Color(0xffBFEDBE),
-          ),
-          child: CachedNetworkImage(
-            imageUrl: getdataList[index]["İmageUrl"],
-            fit: BoxFit.cover,
-            placeholder: (context, url) => const Center(
-              child:
-                  CircularProgressIndicator(), // Show a loading indicator while the image is being fetched.
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(9),
+          child: Container(
+            width: 200,
+            height: 280,
+            decoration: BoxDecoration(
+              color: const Color(0xffBFEDBE),
             ),
-            errorWidget: (context, url, error) => Icon(
-                Icons.error), // Show an error icon if the image fails to load.
+            child: CachedNetworkImage(
+              imageUrl: getdataList[index]["ImageUrl"],
+              fit: BoxFit.cover,
+              placeholder: (context, url) => const Center(
+                child:
+                    CircularProgressIndicator(), // Show a loading indicator while the image is being fetched.
+              ),
+              errorWidget: (context, url, error) => Icon(Icons
+                  .error), // Show an error icon if the image fails to load.
+            ),
           ),
         ),
       ),

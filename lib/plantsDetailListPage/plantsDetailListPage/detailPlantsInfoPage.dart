@@ -19,18 +19,20 @@ class _DetailPlantsInfoPageState extends State<DetailPlantsInfoPage> {
       backgroundColor: const Color(0xff9CD9A1),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            DetailTopBarWidget(
-                topBarTitle: getdataList[detailsIndex]["PlantSpecies"]),
-            detailsContainerWidget(context, "Plant Species :",
-                getdataList[detailsIndex]["PlantSpecies"]),
-            detailsContainerWidget(context, "Plant Size :",
-                getdataList[detailsIndex]["PlantSize"]),
-            detailsContainerWidget(context, "Water Period :",
-                getdataList[detailsIndex]["WaterPeriot"].toString()),
-            detailsImageContainerWidget(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              DetailTopBarWidget(
+                  topBarTitle: getdataList[detailsIndex]["PlantSpecies"]),
+              detailsContainerWidget(context, "Plant Species :",
+                  getdataList[detailsIndex]["PlantSpecies"]),
+              detailsContainerWidget(context, "Plant Size :",
+                  getdataList[detailsIndex]["PlantSize"]),
+              detailsContainerWidget(context, "Water Period :",
+                  getdataList[detailsIndex]["WaterPeriot"].toString()),
+              detailsImageContainerWidget(),
+            ],
+          ),
         ),
       ),
     );

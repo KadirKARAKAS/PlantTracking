@@ -68,7 +68,6 @@ class _PlantImageContainerWidgetState extends State<PlantImageContainerWidget> {
             await ImagePicker().pickImage(source: ImageSource.gallery);
         if (xFile != null) {
           imagePath = xFile.path;
-          print('Resim Yolu: $imagePath');
           setState(() {});
         }
       });

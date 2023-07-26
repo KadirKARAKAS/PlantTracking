@@ -180,6 +180,7 @@ class _AddPlantsPageTextFieldWidgetState
       "PlantSize": plantSize,
       "WaterPeriot": selectionWaterContainer,
       "ImageUrl": imageURLL,
+      "SlidableBool": slidableBool
     };
 
     await FirebaseFirestore.instance
@@ -198,7 +199,14 @@ class _AddPlantsPageTextFieldWidgetState
 
     final querySnapshot = await userRef.get();
     getdataList.clear();
-    querySnapshot.docs.forEach((doc) {
+    querySnapshot.docs.forEach((doc) async {
+      await FirebaseFirestore.instance
+          .collection('Users')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .collection("My Plants")
+          .doc(doc.id)
+          .update({'docId': doc.id});
+
       getdataList.add(doc.data());
     });
 

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 
 List<Map<String, dynamic>> getdataList = [];
@@ -12,3 +13,6 @@ int selectedPlantsIndex = 0;
 int waterPeriotgetDataList = 0;
 int detailsIndex = 0;
 ValueNotifier<int> valueNotifierX = ValueNotifier(0);
+bool slidableIconVale = false;
+bool slidableContainerColorValue = false;
+bool slidableBool = false;
