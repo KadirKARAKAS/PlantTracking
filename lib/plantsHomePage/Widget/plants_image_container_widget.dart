@@ -53,5 +53,38 @@ class PlantsImageContainerWidget extends StatelessWidget {
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             )));
+=======
+      padding: const EdgeInsets.only(right: 15, top: 10),
+      child: InkWell(
+        onTap: () {
+          selectedPlantsIndex = index;
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const PlantsDetailPage(),
+            ),
+          );
+        },
+        child: Container(
+          width: 200,
+          height: 280,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(9),
+            color: const Color(0xffBFEDBE),
+          ),
+          child: CachedNetworkImage(
+            imageUrl: getdataList[index]["İmageUrl"],
+            fit: BoxFit.cover,
+            placeholder: (context, url) => const Center(
+              child:
+                  CircularProgressIndicator(), // Show a loading indicator while the image is being fetched.
+            ),
+            errorWidget: (context, url, error) => Icon(
+                Icons.error), // Show an error icon if the image fails to load.
+          ),
+        ),
+      ),
+    );
+>>>>>>> Stashed changes
   }
 }
