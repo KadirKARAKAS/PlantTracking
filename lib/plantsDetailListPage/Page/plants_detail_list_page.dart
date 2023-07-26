@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plant_tracking/plantsDetailListPage/Widget/detail_Page_listview_widget.dart';
 import 'package:plant_tracking/plantsDetailListPage/Widget/detail_topbar_widget.dart';
-import 'package:plant_tracking/plantsHomePage/Widget/topbar_widget.dart';
 
 class PlantsDetailListPage extends StatefulWidget {
   const PlantsDetailListPage({super.key});

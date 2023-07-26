@@ -18,31 +18,33 @@ class _PlantImageContainerWidgetState extends State<PlantImageContainerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        onTapFunction();
-      },
-      child: Stack(
-        children: [
-          Container(
-              width: MediaQuery.of(context).size.width / 1.89,
-              height: MediaQuery.of(context).size.height / 2.89,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(9),
-                color: const Color(0xffBFEDBE),
-              ),
-              child: selectedImagePath == ""
-                  ? plantsIconPhoto()
-                  : ClipRRect(
-                      borderRadius: BorderRadius.circular(9),
-                      child: Image.file(
-                        File(selectedImagePath),
-                        fit: BoxFit.cover,
-                      ),
-                    )),
-        ],
-      ),
-    );
+    return Builder(builder: (context) {
+      return InkWell(
+        onTap: () {
+          onTapFunction();
+        },
+        child: Stack(
+          children: [
+            Container(
+                width: MediaQuery.of(context).size.width / 1.89,
+                height: MediaQuery.of(context).size.height / 2.89,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(9),
+                  color: const Color(0xffBFEDBE),
+                ),
+                child: selectedImagePath == ""
+                    ? plantsIconPhoto()
+                    : ClipRRect(
+                        borderRadius: BorderRadius.circular(9),
+                        child: Image.file(
+                          File(selectedImagePath),
+                          fit: BoxFit.cover,
+                        ),
+                      )),
+          ],
+        ),
+      );
+    });
   }
 
   Padding plantsIconPhoto() {

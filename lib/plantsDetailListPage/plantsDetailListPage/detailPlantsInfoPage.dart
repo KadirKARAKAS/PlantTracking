@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_tracking/Utils/constant.dart';
 import 'package:plant_tracking/plantsDetailListPage/Widget/detail_topbar_widget.dart';
-import 'package:plant_tracking/settingsPaage/Widget/topbar_widget.dart';
 
 class DetailPlantsInfoPage extends StatefulWidget {
   const DetailPlantsInfoPage({super.key});
