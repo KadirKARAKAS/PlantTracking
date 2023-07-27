@@ -12,6 +12,8 @@ import 'package:plant_tracking/test.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  //listener yeri
+  listenerFunction();
   runApp(const MaterialApp(
     home: TestPage(),
   ));
@@ -60,4 +62,17 @@ Future<void> handleAppStart() async {
       ));
     }
   }
+}
+
+listenerFunction() async {
+  FirebaseFirestore.instance
+      .collection("Users")
+      .doc(FirebaseAuth.instance.currentUser!.uid)
+      .collection("My Plants")
+      .snapshots()
+      .listen((querySnapshot) {
+    for (var element in querySnapshot.docs) {
+      print(element.data()['SlidableBool']);
+    }
+  });
 }
