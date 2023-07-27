@@ -43,9 +43,9 @@ class _PlantsHomePageState extends State<PlantsHomePage> {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     print("valuenotifierx.value dinleniyor ");
-    Future.delayed(Duration(milliseconds: 100));
     print("scaffloda girdi ");
     return Scaffold(
       backgroundColor: const Color(0xff9CD9A1),

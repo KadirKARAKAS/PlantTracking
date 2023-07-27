@@ -12,8 +12,7 @@ import 'package:plant_tracking/test.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  //listener yeri
-  listenerFunction();
+  // listenerFunction();
   runApp(const MaterialApp(
     home: TestPage(),
   ));
