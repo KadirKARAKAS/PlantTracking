@@ -45,8 +45,8 @@ class PlantsImageContainerWidget extends StatelessWidget {
           child: Container(
             width: 200,
             height: 280,
-            decoration: BoxDecoration(
-              color: const Color(0xffBFEDBE),
+            decoration: const BoxDecoration(
+              color: Color(0xffBFEDBE),
             ),
             child: CachedNetworkImage(
               imageUrl: getdataList[index]["ImageUrl"],

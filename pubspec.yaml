@@ -44,6 +44,7 @@ dependencies:
   firebase_auth: ^4.7.1
   cached_network_image: ^3.2.3
   flutter_slidable: ^3.0.0
+  lottie: ^2.5.0
   
 
 dev_dependencies:

@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 
 List<Map<String, dynamic>> getdataList = [];
@@ -16,3 +15,4 @@ ValueNotifier<int> valueNotifierX = ValueNotifier(0);
 bool slidableIconVale = false;
 bool slidableContainerColorValue = false;
 bool slidableBool = false;
+bool isTextUnderlined = false;

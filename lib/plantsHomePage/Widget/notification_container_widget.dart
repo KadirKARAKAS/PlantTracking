@@ -6,9 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:plant_tracking/Utils/constant.dart';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
-
 class NotificationContainerWidget extends StatefulWidget {
   const NotificationContainerWidget({super.key});
 
@@ -19,8 +16,6 @@ class NotificationContainerWidget extends StatefulWidget {
 
 class _NotificationContainerWidgetState
     extends State<NotificationContainerWidget> {
-  bool isTextUnderlined = false;
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -38,8 +33,6 @@ class _NotificationContainerWidgetState
               shrinkWrap: true,
               itemCount: getdataList.length,
               itemBuilder: (context, index) {
-                waterPeriod = getdataList[index]["WaterPeriot"];
-
                 return Column(
                   children: [
                     addWaterContainerWidget(index),
@@ -56,7 +49,7 @@ class _NotificationContainerWidgetState
 
   Widget addWaterContainerWidget(int index) {
     Size size = MediaQuery.of(context).size;
-
+    print(slidableBool);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 3),
       child: Slidable(
@@ -64,29 +57,27 @@ class _NotificationContainerWidgetState
           motion: const StretchMotion(),
           children: [
             SlidableAction(
-              onPressed: (context) {
-                FirebaseFirestore.instance
+              onPressed: (context) async {
+                slidableBool = !slidableBool;
+                await FirebaseFirestore.instance
                     .collection("Users")
                     .doc(FirebaseAuth.instance.currentUser!.uid)
                     .collection("My Plants")
-                    .doc()
-                    .update({"SlidableBool": true});
+                    .doc(getdataList[index]["docId"])
+                    .update({"SlidableBool": slidableBool});
 
                 slidableIconVale = !slidableContainerColorValue;
                 slidableContainerColorValue = !slidableContainerColorValue;
-                // isTextUnderlined = !isTextUnderlined;
-                // Update is available value for database
+                isTextUnderlined = !isTextUnderlined;
 
                 setState(() {});
               },
-              // icon: isAvailable ? Icons.ad_units : Icons.dangerous,
-              // backgroundColor: isAvailable ? Colors.green : Colors.red,
-
-              icon: slidableIconVale
+              icon: getdataList[index]['SlidableBool']
                   ? Icons.assignment_turned_in_rounded
                   : Icons.assignment_turned_in_outlined,
-              backgroundColor:
-                  slidableContainerColorValue ? Colors.red : Colors.green,
+              backgroundColor: getdataList[index]['SlidableBool']
+                  ? Colors.green
+                  : Colors.red,
               borderRadius: BorderRadius.circular(9),
             )
           ],

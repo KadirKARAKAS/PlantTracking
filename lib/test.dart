@@ -1,7 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:plant_tracking/Utils/constant.dart';
+import 'package:lottie/lottie.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({super.key});
@@ -14,28 +12,49 @@ class _TestPageState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: InkWell(
-          onTap: () async {
-            final userRef = FirebaseFirestore.instance
-                .collection("Users")
-                .doc(FirebaseAuth.instance.currentUser!.uid)
-                .collection("My Plants");
-
-            final querySnapshot = await userRef.get();
-
-            getdataList.clear();
-            querySnapshot.docs.forEach((doc) {
-              getdataList.add(doc.data());
-            });
-            print(getdataList);
-          },
-          child: Container(
-            width: 50,
-            height: 50,
-            color: Colors.red,
+        backgroundColor: Color(0xffBFEDBE),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(height: 50),
+              Container(
+                height: 450,
+                color: Colors.transparent,
+                child: Lottie.asset("assets/splash.json", fit: BoxFit.cover),
+              ),
+              SizedBox(height: 50),
+              textColumn(),
+            ],
           ),
-        ),
+        ));
+  }
+
+  Widget textColumn() {
+    return Container(
+      color: Colors.transparent,
+      child: const Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Text(
+            "Plant",
+            style: TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+                shadows: [
+                  BoxShadow(color: Colors.black45, offset: Offset(-2, 2))
+                ]),
+          ),
+          Text(
+            "Tracking",
+            style: TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+                shadows: [
+                  BoxShadow(color: Colors.black45, offset: Offset(-2, 2))
+                ]),
+          ),
+        ],
       ),
     );
   }

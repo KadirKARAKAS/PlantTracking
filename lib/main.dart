@@ -7,11 +7,18 @@ import 'package:plant_tracking/Utils/constant.dart';
 import 'package:plant_tracking/addPlantsPage/Page/add_plants_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:plant_tracking/plantsHomePage/Page/plants_home_page.dart';
+import 'package:plant_tracking/test.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  await handleAppStart();
+  runApp(const MaterialApp(
+    home: TestPage(),
+  ));
+  // await handleAppStart();
+  Future.delayed(const Duration(milliseconds: 2000), () async {
+    await handleAppStart();
+  });
 }
 
 Future<void> handleAppStart() async {

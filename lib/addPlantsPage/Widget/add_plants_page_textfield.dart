@@ -25,6 +25,32 @@ class _AddPlantsPageTextFieldWidgetState
   final TextEditingController textFieldController2 = TextEditingController();
 
   @override
+  // void initState() {
+  //   print("400ms bekleme sırası");
+  //   Future.delayed(const Duration(milliseconds: 400), () async {
+  //     valueNotifierX.value += 1;
+  //     final userRef = FirebaseFirestore.instance
+  //         .collection("Users")
+  //         .doc(FirebaseAuth.instance.currentUser!.uid)
+  //         .collection("My Plants");
+
+  //     final querySnapshot = await userRef.get();
+  //     getdataList.clear();
+  //     querySnapshot.docs.forEach((doc) async {
+  //       await FirebaseFirestore.instance
+  //           .collection('Users')
+  //           .doc(FirebaseAuth.instance.currentUser!.uid)
+  //           .collection("My Plants")
+  //           .doc(doc.id)
+  //           .update({'docId': doc.id});
+  //       print('DOC ID UPDATE AFTER:::${doc.id}');
+  //       getdataList.add(doc.data());
+  //     });
+  //   });
+
+  //   super.initState();
+  // }
+
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Stack(
@@ -58,6 +84,9 @@ class _AddPlantsPageTextFieldWidgetState
                 child: InkWell(
                   onTap: () {
                     storageKaydetme();
+                    Future.delayed(const Duration(milliseconds: 400), () {
+                      valueNotifierX.value += 1;
+                    });
                   },
                   child: Container(
                     width: 80,
@@ -206,7 +235,7 @@ class _AddPlantsPageTextFieldWidgetState
           .collection("My Plants")
           .doc(doc.id)
           .update({'docId': doc.id});
-
+      print('DOC ID UPDATE AFTER:::${doc.id}');
       getdataList.add(doc.data());
     });
 
@@ -217,14 +246,20 @@ class _AddPlantsPageTextFieldWidgetState
 
     if (!adddatacomlate) {
       if (iconVisiable) {
-        Navigator.pop(context);
-        Navigator.pop(context);
-        valueNotifierX.value += 1;
-      } else {
-        Navigator.pushReplacement(
+        Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => PlantsHomePage(),
+            ));
+        valueNotifierX.value += 1;
+      } else {
+        Future.delayed(const Duration(milliseconds: 300), () {
+          valueNotifierX.value += 1;
+        });
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const PlantsHomePage(),
             ));
       }
     }
