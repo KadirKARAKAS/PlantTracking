@@ -16,7 +16,6 @@ Future<void> main() async {
   runApp(const MaterialApp(
     home: TestPage(),
   ));
-  // await handleAppStart();
   Future.delayed(const Duration(milliseconds: 2000), () async {
     await handleAppStart();
   });
@@ -71,7 +70,7 @@ listenerFunction() async {
       .snapshots()
       .listen((querySnapshot) {
     for (var element in querySnapshot.docs) {
-      print(element.data()['SlidableBool']);
+      print("asdaddsdadssa,${element.data()}");
     }
   });
 }

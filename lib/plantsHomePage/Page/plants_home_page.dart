@@ -7,6 +7,7 @@ import 'package:plant_tracking/plantsHomePage/Widget/main_notification_widget.da
 import 'package:plant_tracking/plantsHomePage/Widget/plants_image_container_widget.dart';
 import 'package:plant_tracking/plantsHomePage/Widget/text_widget.dart';
 import 'package:plant_tracking/plantsHomePage/Widget/topbar_widget.dart';
+import 'package:plant_tracking/tasksdetailspage/Page/task_detail_page.dart';
 
 class PlantsHomePage extends StatefulWidget {
   const PlantsHomePage({super.key});
@@ -18,7 +19,6 @@ class PlantsHomePage extends StatefulWidget {
 class _PlantsHomePageState extends State<PlantsHomePage> {
   @override
   void initState() {
-    print("400ms bekleme sırası");
     Future.delayed(const Duration(milliseconds: 400), () async {
       valueNotifierX.value += 1;
       final userRef = FirebaseFirestore.instance
@@ -45,8 +45,6 @@ class _PlantsHomePageState extends State<PlantsHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print("valuenotifierx.value dinleniyor ");
-    print("scaffloda girdi ");
     return Scaffold(
       backgroundColor: const Color(0xff9CD9A1),
       body: SingleChildScrollView(
@@ -55,7 +53,14 @@ class _PlantsHomePageState extends State<PlantsHomePage> {
           child: Column(
             children: [
               const TopBarWidget(),
-              const TextWidget(text: 'Tasks'),
+              InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TaskDetailsPage()));
+                  },
+                  child: const TextWidget(text: 'Tasks')),
               const NotificationWidget(),
               InkWell(
                 focusColor: Colors.transparent,
