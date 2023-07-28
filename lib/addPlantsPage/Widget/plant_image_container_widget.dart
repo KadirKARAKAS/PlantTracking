@@ -20,8 +20,22 @@ class _PlantImageContainerWidgetState extends State<PlantImageContainerWidget> {
   Widget build(BuildContext context) {
     return Builder(builder: (context) {
       return InkWell(
-        onTap: () {
-          onTapFunction();
+        onTap: () async {
+          var status = await Permission.storage.status;
+          if (status.isDenied) {
+            print('İzin Hiç sorulmadı');
+            await Permission.storage.request().then((value) {
+              if (value.isGranted) {
+                onTapFunction();
+              } else {
+                print("");
+              }
+            });
+          } else if (status.isGranted) {
+            print('İzin önceden soruldu ve kullanıcı izni verdi');
+          } else {
+            print('İzin önceden soruldu ve kullanıcı izni vermedi');
+          }
         },
         child: Stack(
           children: [
