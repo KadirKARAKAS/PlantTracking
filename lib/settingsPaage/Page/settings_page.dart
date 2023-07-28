@@ -12,19 +12,14 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
         backgroundColor: Color(0xff9CD9A1),
         body: Column(
           children: [
-            const TopBarWidgetSetting(),
-            const Padding(
+            TopBarWidgetSetting(),
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: SettingsPageContainerWidget(),
-            ),
-            Container(
-              width: 50,
-              color: Colors.red,
-              height: 50,
             ),
           ],
         ));

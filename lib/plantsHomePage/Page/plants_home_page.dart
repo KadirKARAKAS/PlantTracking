@@ -54,6 +54,10 @@ class _PlantsHomePageState extends State<PlantsHomePage> {
             children: [
               const TopBarWidget(),
               InkWell(
+                  focusColor: Colors.transparent,
+                  splashColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () {
                     Navigator.push(
                         context,

@@ -55,7 +55,7 @@ class PlantsImageContainerWidget extends StatelessWidget {
                 child:
                     CircularProgressIndicator(), // Show a loading indicator while the image is being fetched.
               ),
-              errorWidget: (context, url, error) => Icon(Icons
+              errorWidget: (context, url, error) => const Icon(Icons
                   .error), // Show an error icon if the image fails to load.
             ),
           ),

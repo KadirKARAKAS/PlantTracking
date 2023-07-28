@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_tracking/Utils/constant.dart';
 
@@ -43,12 +44,15 @@ class TaskDetailPageWidget extends StatelessWidget {
                             child: Container(
                               width: size.width,
                               height: size.height / 3,
-                              decoration: BoxDecoration(
-                                  color: Colors.red,
-                                  image: DecorationImage(
-                                      image: NetworkImage(
-                                          getdataList[index]["ImageUrl"]),
-                                      fit: BoxFit.cover)),
+                              child: CachedNetworkImage(
+                                imageUrl: getdataList[index]["ImageUrl"],
+                                fit: BoxFit.cover,
+                                placeholder: (context, url) => const Center(
+                                  child: CircularProgressIndicator(),
+                                ),
+                                errorWidget: (context, url, error) =>
+                                    const Icon(Icons.error),
+                              ),
                             ),
                           ),
                         ),
