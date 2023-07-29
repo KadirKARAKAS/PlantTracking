@@ -52,11 +52,12 @@ class PlantsImageContainerWidget extends StatelessWidget {
               imageUrl: getdataList[index]["ImageUrl"],
               fit: BoxFit.cover,
               placeholder: (context, url) => const Center(
-                child:
-                    CircularProgressIndicator(), // Show a loading indicator while the image is being fetched.
+                child: CircularProgressIndicator(),
               ),
-              errorWidget: (context, url, error) => const Icon(Icons
-                  .error), // Show an error icon if the image fails to load.
+              errorWidget: (context, url, error) => const Icon(
+                Icons.photo,
+                size: 50,
+              ),
             ),
           ),
         ),

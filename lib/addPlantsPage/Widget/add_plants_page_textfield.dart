@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -26,32 +24,6 @@ class _AddPlantsPageTextFieldWidgetState
   final TextEditingController textFieldController2 = TextEditingController();
 
   @override
-  // void initState() {
-  //   print("400ms bekleme sırası");
-  //   Future.delayed(const Duration(milliseconds: 400), () async {
-  //     valueNotifierX.value += 1;
-  //     final userRef = FirebaseFirestore.instance
-  //         .collection("Users")
-  //         .doc(FirebaseAuth.instance.currentUser!.uid)
-  //         .collection("My Plants");
-
-  //     final querySnapshot = await userRef.get();
-  //     getdataList.clear();
-  //     querySnapshot.docs.forEach((doc) async {
-  //       await FirebaseFirestore.instance
-  //           .collection('Users')
-  //           .doc(FirebaseAuth.instance.currentUser!.uid)
-  //           .collection("My Plants")
-  //           .doc(doc.id)
-  //           .update({'docId': doc.id});
-  //       print('DOC ID UPDATE AFTER:::${doc.id}');
-  //       getdataList.add(doc.data());
-  //     });
-  //   });
-
-  //   super.initState();
-  // }
-
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Stack(
@@ -67,14 +39,15 @@ class _AddPlantsPageTextFieldWidgetState
                 height: 10,
               ),
               const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "How often do you water the plant?",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Color(0xff747474),
-                    ),
-                  )),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "How often do you water the plant?",
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Color(0xff747474),
+                  ),
+                ),
+              ),
               const SizedBox(height: 10),
               const PlantWaterContainerWidget(), // SULAMA ZAMANI CONTAİNER
               const SizedBox(height: 30),
@@ -84,10 +57,31 @@ class _AddPlantsPageTextFieldWidgetState
                 alignment: Alignment.center,
                 child: InkWell(
                   onTap: () async {
-                    storageKaydetme();
-                    Future.delayed(const Duration(milliseconds: 400), () {
-                      valueNotifierX.value += 1;
-                    });
+                    if (_areFieldsValid()) {
+                      storageKaydetme();
+                      Future.delayed(const Duration(milliseconds: 400), () {
+                        valueNotifierX.value += 1;
+                      });
+                    } else {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: const Text('Uyarı'),
+                            content: const Text(
+                                'Lütfen istenilen bilgileri doldurunuz.(Bitkinin fotoğrafını yüklemek zorunlu değildir.)'),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text('OK'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    }
                   },
                   child: Container(
                     width: 80,
@@ -96,13 +90,15 @@ class _AddPlantsPageTextFieldWidgetState
                         color: const Color(0xffDEFFDD),
                         borderRadius: BorderRadius.circular(23)),
                     child: const Center(
-                        child: Text(
-                      "Add",
-                      style: TextStyle(
+                      child: Text(
+                        "Add",
+                        style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xff747474)),
-                    )),
+                          color: Color(0xff747474),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -133,6 +129,12 @@ class _AddPlantsPageTextFieldWidgetState
         ),
       ],
     );
+  }
+
+  bool _areFieldsValid() {
+    return textFieldController1.text.isNotEmpty &&
+        textFieldController2.text.isNotEmpty &&
+        selectionWaterContainer != null;
   }
 
   void storageKaydetme() async {
@@ -187,17 +189,18 @@ class _AddPlantsPageTextFieldWidgetState
           color: const Color(0xffDEFFDD),
           borderRadius: BorderRadius.circular(9)),
       child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: TextField(
-            controller: textFieldController1,
-            decoration: const InputDecoration(
-              focusedBorder: InputBorder.none,
-              enabledBorder: InputBorder.none,
-              hintText: 'Plant Species',
-              hintStyle: TextStyle(fontSize: 20),
-              contentPadding: EdgeInsets.symmetric(vertical: 20),
-            ),
-          )),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: TextField(
+          controller: textFieldController1,
+          decoration: const InputDecoration(
+            focusedBorder: InputBorder.none,
+            enabledBorder: InputBorder.none,
+            hintText: 'Plant Species',
+            hintStyle: TextStyle(fontSize: 20),
+            contentPadding: EdgeInsets.symmetric(vertical: 20),
+          ),
+        ),
+      ),
     );
   }
 

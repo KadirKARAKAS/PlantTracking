@@ -93,7 +93,10 @@ class _DetailPlantsInfoPageState extends State<DetailPlantsInfoPage> {
           placeholder: (context, url) => const Center(
             child: CircularProgressIndicator(),
           ),
-          errorWidget: (context, url, error) => const Icon(Icons.error),
+          errorWidget: (context, url, error) => const Icon(
+            Icons.photo,
+            size: 50,
+          ),
         ),
       ),
     );

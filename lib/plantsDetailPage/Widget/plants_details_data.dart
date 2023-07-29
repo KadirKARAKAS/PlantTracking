@@ -75,7 +75,10 @@ class PlansDetailsData extends StatelessWidget {
           placeholder: (context, url) => const Center(
             child: CircularProgressIndicator(),
           ),
-          errorWidget: (context, url, error) => const Icon(Icons.error),
+          errorWidget: (context, url, error) => const Icon(
+            Icons.photo,
+            size: 50,
+          ),
         ),
       ),
     );

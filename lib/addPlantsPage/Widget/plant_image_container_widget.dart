@@ -27,11 +27,10 @@ class _PlantImageContainerWidgetState extends State<PlantImageContainerWidget> {
             await Permission.storage.request().then((value) {
               if (value.isGranted) {
                 onTapFunction();
-              } else {
-                print("");
-              }
+              } else {}
             });
           } else if (status.isGranted) {
+            onTapFunction();
             print('İzin önceden soruldu ve kullanıcı izni verdi');
           } else {
             print('İzin önceden soruldu ve kullanıcı izni vermedi');
