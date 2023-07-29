@@ -1,4 +1,4 @@
-package com.example.plant_tracking
+package com.kadirkrks.plant_tracking
 
 import io.flutter.embedding.android.FlutterActivity
 
