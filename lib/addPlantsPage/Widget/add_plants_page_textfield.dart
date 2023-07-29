@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:plant_tracking/Utils/constant.dart';
 import 'package:plant_tracking/addPlantsPage/Widget/plant_image_container_widget.dart';
 import 'package:plant_tracking/plantsHomePage/Page/plants_home_page.dart';
